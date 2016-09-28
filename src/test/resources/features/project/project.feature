@@ -16,5 +16,4 @@ Feature: Project widget
   Scenario: Validate All information from pivotal projects are displayed in Mach2 table widget
     When I add a table widget in the board
     And I select the Project option
-    And I add a table widget in the board
     Then Validate project table against pivotal project
