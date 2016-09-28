@@ -1,9 +1,9 @@
 package org.fundacionjala.dashboard.cucumber.hooks;
 
 import cucumber.api.java.Before;
-
 import org.fundacionjala.dashboard.ui.pages.HomePage;
 import org.fundacionjala.dashboard.ui.pages.LoginPage;
+import org.fundacionjala.dashboard.ui.pages.content.BoardPage;
 import org.fundacionjala.dashboard.ui.pages.menu.Profile;
 import org.fundacionjala.dashboard.ui.pages.menu.Service;
 import org.fundacionjala.dashboard.ui.pages.menu.TopMenu;
@@ -17,7 +17,7 @@ public class GlobalHooks {
     private static final String PIVOTAL_TRACKER_SERVICE_NAME = "Pivotal Tracker";
 
     private boolean beforeAllFlag;
-
+    private BoardPage boardPage;
     @Before
     public void beforeAll() {
         if (!beforeAllFlag) {
@@ -34,6 +34,7 @@ public class GlobalHooks {
             service.clickSaveButton();
 
             topMenu.clickJalasoftIcon();
+            boardPage = topMenu.clickAddBoardMenu();
 
             beforeAllFlag = true;
         }
